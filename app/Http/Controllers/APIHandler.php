@@ -13,9 +13,11 @@ class APIHandler extends Controller
         $symbol = 'AMD'; 
        
         $res = Http::get('https://financialmodelingprep.com/api/v3/profile/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
-        dd($res->body()); 
+        $r = json_decode($res->body());
+        $data = $r[0]; 
+        
         return Inertia::render('FinanceTable', [
-            'data' => json_decode($res->body()), // Pass your data to the component
+            'data' => $data, // Pass your data to the component
         ]);
     }
     public function getQuote(){
