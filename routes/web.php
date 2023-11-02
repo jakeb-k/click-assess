@@ -37,4 +37,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/companyprofile', [APIHandler::class, 'getProfile']); 
+Route::get('/companyquote', [APIHandler::class, 'getQuote']); 
+
 require __DIR__.'/auth.php';
