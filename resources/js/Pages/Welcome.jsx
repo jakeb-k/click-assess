@@ -1,5 +1,5 @@
 import { Link, Head } from '@inertiajs/react';
-
+//pre built breeze scaffolding
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     return (
         <>

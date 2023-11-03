@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link }from '@inertiajs/react';
-
+//basic component used to handle a no data return from the API
 const NoMatch = ({ message}) => {
   const boxStyle = {
     boxShadow: '0 0 5px black',

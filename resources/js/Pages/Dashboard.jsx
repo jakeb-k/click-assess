@@ -18,6 +18,10 @@ export default function Dashboard({ auth }) {
         post('/companyquote')
     }
     return (
+        //uses breeze scaffolding for expedited user registration, authentication and only
+        //shows this dashboard once the user is logged in
+
+        //react useForm is used to send data to the API handler
         <AuthenticatedLayout
             user={auth.user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
@@ -28,6 +32,7 @@ export default function Dashboard({ auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
+                        
                          <form onSubmit={profileSubmit} style={{display:'flex', flexDirection:'column', width:'50%',margin:'0 auto'}}>
                             <label htmlFor="profileSym">Enter Company Symbol (AAPL, AMD etc): </label>
                               <input type="text" value={data.profileSym} onChange={e => setData('profileSym', e.target.value)}  style={{margin:'20px'}}/>

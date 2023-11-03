@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link }from '@inertiajs/react';
-
+//custom table component used to display API data in a readable format
 const CompanyInfo = ({ data, title }) => {
   //styles
   const contStyle = {
@@ -30,6 +30,9 @@ const CompanyInfo = ({ data, title }) => {
     borderCollapse: 'collapse',
     border:' 1px solid black' 
   }
+  //map the object key value data to enable easy looping of large amounts of data
+  //checks the value is a string and if not it changes it to a string
+  //to ensure it will display properly
   const tableData = Object.entries(data).map(([key, value]) => (
     <tbody>
       <tr>
