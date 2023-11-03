@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/companyprofile', [APIHandler::class, 'getProfile']); 
-Route::get('/companyquote', [APIHandler::class, 'getQuote']); 
+Route::post('/companyprofile', [APIHandler::class, 'getProfile']); 
+Route::post('/companyquote', [APIHandler::class, 'getQuote']); 
 
 require __DIR__.'/auth.php';

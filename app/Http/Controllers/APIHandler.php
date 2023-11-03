@@ -9,26 +9,27 @@ use Inertia\Inertia;
 
 class APIHandler extends Controller
 {
-    public function getProfile(){
-        $symbol = 'AMD'; 
+    public function getProfile(Request $request){
+        $symbol = $request->profileSym; 
        
-        $res = Http::get('https://financialmodelingprep.com/api/v3/profile/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
-        $r = json_decode($res->body());
-        $data = $r[0]; 
-        
+        $req = Http::get('https://financialmodelingprep.com/api/v3/profile/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
+        $res = json_decode($req->body());
+        $data = $res[0]; 
         return Inertia::render('FinanceTable', [
-            'data' => $data, // Pass your data to the component
+            'data' => $data, 
+            'title' => 'Company Profile',
+
         ]);
     }
-    public function getQuote(){
-        $symbol = 'AMD';
+    public function getQuote(Request $request){
+        $symbol = $request->quoteSym;
 
-        $res = Http::get('https://financialmodelingprep.com/api/v3/quote/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
-        $r = json_decode($res->body());
-        $data = $r[0]; 
-        
+        $req = Http::get('https://financialmodelingprep.com/api/v3/quote/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
+        $res = json_decode($req->body());
+        $data = $res[0]; 
         return Inertia::render('FinanceTable', [
-            'data' => $data, // Pass your data to the component
+            'data' => $data, 
+            'title' => 'Company Stock Quote',
         ]);
 
     }

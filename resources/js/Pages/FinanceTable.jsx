@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from "styled-components";
+import { Link }from '@inertiajs/react';
 
-const CompanyInfo = ({ data }) => {
+const CompanyInfo = ({ data, title }) => {
   //styles
   const contStyle = {
     width:'50%',
@@ -12,6 +12,11 @@ const CompanyInfo = ({ data }) => {
     margin:'50px auto'
     
 
+  }
+  const linkStyle= {
+    color:'blue',
+    textDecoration:'underline',
+    marginRight:'auto',
   }
   const infoBox = {
     display:'flex',
@@ -38,7 +43,8 @@ const CompanyInfo = ({ data }) => {
 
   return (
     <div style={contStyle}>
-      <h2>Company Information</h2>
+      <Link href="/dashboard" style={linkStyle}>Back</Link>
+      <h2>{title}</h2>
       
         <table style={tableStyle}>
       
