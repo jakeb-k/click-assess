@@ -14,11 +14,16 @@ class APIHandler extends Controller
        
         $req = Http::get('https://financialmodelingprep.com/api/v3/profile/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
         $res = json_decode($req->body());
+        if($res) {
         $data = $res[0]; 
         return Inertia::render('FinanceTable', [
             'data' => $data, 
             'title' => 'Company Profile',
 
+        ]);
+        }
+        return Inertia::render('NoMatch', [
+            'message' => 'No Matching Company Found!', 
         ]);
     }
     public function getQuote(Request $request){
@@ -27,9 +32,14 @@ class APIHandler extends Controller
         $req = Http::get('https://financialmodelingprep.com/api/v3/quote/'.$symbol.'?apikey=rjtxIVjGarzsucbadQiUQSZ2igNCPoZq');
         $res = json_decode($req->body());
         $data = $res[0]; 
+        if($res[0]) {
         return Inertia::render('FinanceTable', [
             'data' => $data, 
             'title' => 'Company Stock Quote',
+        ]);
+        }
+        return Inertia::render('NoMatch', [
+            'message' => 'No Matching Company Found!', 
         ]);
 
     }

@@ -42,6 +42,7 @@ const CompanyInfo = ({ data, title }) => {
   ));
 
   return (
+    
     <div style={contStyle}>
       <Link href="/dashboard" style={linkStyle}>Back</Link>
       <h2>{title}</h2>

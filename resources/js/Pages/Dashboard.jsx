@@ -37,12 +37,15 @@ export default function Dashboard({ auth }) {
 
                         <br></br>
                         <br></br>
+
                         <form onSubmit={quoteSubmit} style={{display:'flex', flexDirection:'column', width:'50%',margin:'0 auto'}}>
                             <label htmlFor="quoteSym">Enter Company Stock Quote (AAPL, AMD etc): </label>
                               <input type="text" value={data.quoteSym} onChange={e => setData('quoteSym', e.target.value)}  style={{margin:'20px'}}/>
                                 {errors.quoteSym && <div>{errors.quoteSym}</div>}
                             <button type="submit" disabled={processing} style={{textDecoration:'underline'}}>Find Company Stock Quote</button>
                         </form>
+
+                        
                         </div>
                     </div>
                 </div>
